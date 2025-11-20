@@ -15,6 +15,15 @@ def find_slovo(x: str):
 
 find_slovo('line')
 
+def new_file():
+    with open("hello.txt", "r", encoding="utf-8") as file:
+        x = file.read()
+
+    with open(f"hello_copy.txt", "w", encoding="utf-8") as myfile:
+        myfile.write(x)
+
+new_file()
+
 
 
 

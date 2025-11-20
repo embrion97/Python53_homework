@@ -6,6 +6,9 @@ class Task:
     def mark_done(self):
         self.is_done = "Выполнено"
 
+    def compliet(self):
+        return self.is_done
+
 
 def to_dict(self) -> dict:
     return {"title": self.title, "is_done": self.is_done}
