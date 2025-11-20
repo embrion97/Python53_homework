@@ -24,6 +24,20 @@ def new_file():
 
 new_file()
 
+vocabular = ('ой', "уй")
+text = "ой как хорошо уй буй"
+def seach(vocabular, text):
+    for i in vocabular:
+        for match in re.finditer(i, text):
+            text = text[:match.start()] + text[match.start(-1):]
+    print(text)
+
+seach(vocabular, text)
+
+
+
+
+
 
 
 
