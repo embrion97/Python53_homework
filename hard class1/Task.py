@@ -10,8 +10,12 @@ class Task:
         return self.is_done
 
 
-def to_dict(self) -> dict:
-    return {"title": self.title, "is_done": self.is_done}
+    def to_dict(self) -> dict:
+        return {"title": self.title, "is_done": self.is_done}
+
+
+
+
 
 
 
