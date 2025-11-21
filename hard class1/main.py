@@ -12,6 +12,7 @@ while True:
         if first.remove(del_task) == False:
             print("Такой задачи не существует")
 
+
     elif x == "list":
         print(first)
     elif x == "done":
