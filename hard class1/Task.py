@@ -13,6 +13,10 @@ class Task:
     def to_dict(self) -> dict:
         return {"title": self.title, "is_done": self.is_done}
 
+    @staticmethod
+    def from_dict(data: dict):
+        return Task(title=data["title"], is_done=data["is_done"])
+
 
 
 

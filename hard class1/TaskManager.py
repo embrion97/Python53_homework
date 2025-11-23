@@ -1,5 +1,6 @@
 from Task import Task
 from pathlib import Path
+import json
 
 FILE_PATH = Path("tasks.json")
 class TaskManager():
@@ -38,6 +39,13 @@ class TaskManager():
                 print("Задача уже выполнена")
                 return True
         return False
+
+    def exit(self):
+        lst_dict = [i.to_dict() for i in self.tasks]
+        x = self.file_path
+        with open(f'{x}', 'a', encoding='utf-8') as file:
+            json.dump(lst_dict, file, ensure_ascii=False, indent=4)
+        print(f"Сохранено в «{self.file_path}».")
 
 
     def __str__(self):

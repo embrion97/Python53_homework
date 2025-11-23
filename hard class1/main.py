@@ -21,6 +21,9 @@ while True:
             pass
         else:
             print("Такой задачи не существует")
+    elif x == "exit":
+        first.exit()
+        break
 
 
 
