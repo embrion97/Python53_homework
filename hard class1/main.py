@@ -1,8 +1,10 @@
 from Task import Task
 from TaskManager import TaskManager
 
-command = f"add - добавить задачу\ndel - удалить задачу\nlist - список активных хадач\ndone - изменить статус задачи"
+command = f"add - добавить задачу\ndel - удалить задачу\nlist - список активных хадач\ndone - изменить статус задачи\nexit - сохранить задачи и завершить програму\n"
 first = TaskManager()
+first.load_from_file()
+first.delet()
 while True:
     x = input(command)
     if x == "add":
@@ -24,6 +26,8 @@ while True:
     elif x == "exit":
         first.exit()
         break
+    else:
+        print(f"Такой команды не существует\n")
 
 
 

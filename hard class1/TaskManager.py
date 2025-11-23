@@ -1,3 +1,5 @@
+from typing import TextIO
+
 from Task import Task
 from pathlib import Path
 import json
@@ -47,6 +49,22 @@ class TaskManager():
             json.dump(lst_dict, file, ensure_ascii=False, indent=4)
         print(f"Сохранено в «{self.file_path}».")
 
+    def delet(self):
+        x = self.file_path
+        with open(f'{x}', 'w', encoding='utf-8') as file:
+            file.truncate()
+
+    def load_from_file(self):
+        x = self.file_path
+
+        with open(f'{x}', 'r', encoding='utf-8') as file:
+            try:
+                raw = json.load(file)
+                self.tasks = [Task.from_dict(i) for i in raw]
+            except json.JSONDecodeError as e:
+                print(f"ошибка {e}или задач нет")
+                self.tasks = []
+
 
     def __str__(self):
         if not self.tasks:
@@ -55,7 +73,6 @@ class TaskManager():
             all_in = ""
             for i in self.tasks:
                 all_in+= f"задача: {i.title}, is_done: {i.is_done}\n"
-            print("aa", all_in)
             return all_in
 
 
